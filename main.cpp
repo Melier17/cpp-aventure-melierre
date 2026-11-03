@@ -1,4 +1,4 @@
-##include "raylib.h"
+#include "raylib.h"
 
 struct Player {
     float x, y;
@@ -11,16 +11,16 @@ int main(void)
 {
     const int screenWidth = 800;
     const int screenHeight = 450;
-    
+
     InitWindow(screenWidth, screenHeight, "Aventura Melierre");
     SetTargetFPS(60);
 
     // Crear jugador
     Player player = { screenWidth/2, screenHeight/2, 5.0f, 30, MAROON };
 
-    while (!WindowShouldClose())    
+    while (!WindowShouldClose())
     {
-        // --- LÓGICA ---
+        // --- LOGICA ---
         if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) player.y -= player.speed;
         if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) player.y += player.speed;
         if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) player.x -= player.speed;
@@ -35,7 +35,7 @@ int main(void)
         // --- DIBUJO ---
         BeginDrawing();
             ClearBackground(RAYWHITE);
-            DrawRectangle(player.x, player.y, player.size, player.size, player.color);
+            DrawRectangle((int)player.x, (int)player.y, player.size, player.size, player.color);
             DrawText("Muevete con WASD o Flechas", 10, 10, 20, DARKGRAY);
         EndDrawing();
     }
